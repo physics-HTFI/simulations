@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>video{width:0; height:0;} button{margin:10px;} .chapter{display:block;}</style>
+  </head>
+  <body>
+    <script src="physics-HTFI.github.io/resources/js/chapter.js" type='text/javascript'></script>
+	<script>
+let book = "";
+let chapter = "";
+for(let key in window.button_names) {
+  let split = key.split("/");
+  if(book !== split[0]) {
+    book = split[0];
+    const h1 = document.createElement("h1");
+    h1.textContent = {"classical_mechanics":"力学", "continuum_mechanics":"連続体力学", "eletrodynamics":"電磁気学", "gravitation":"重力理論"}[book] + "編";
+    document.body.appendChild(h1);
+    chapter = "";
+  }
+  const cur = split[1].split(".")[0];
+  if(chapter !== cur) {
+    chapter = cur;
+    const span = document.createElement("span");
+    span.className = "chapter";
+    span.textContent = `第${chapter}章`;
+    document.body.appendChild(span);
+  }
+  const button = document.createElement("button");
+  button.name = key;
+  button.className = "thumbnail_click_button";
+  button.textContent = window.button_names[key].title;
+  const video = document.createElement("video");
+  video.className = "thumbnail_video";
+  button.appendChild(video);
+  document.body.appendChild(button);
+}
+	</script>
+
+  </body>
+</html>
