@@ -25,7 +25,7 @@ for(let key in window.button_names) {
   if(book !== split[0]) {
     book = split[0];
     const h1 = document.createElement("h1");
-    h1.textContent = {"classical_mechanics":"力学", "continuum_mechanics":"連続体力学", "eletrodynamics":"電磁気学", "gravitation":"重力理論"}[book] + "編";
+    h1.textContent = {"classical_mechanics":"力学", "continuum_mechanics":"連続体力学", "electrodynamics":"電磁気学", "gravitation":"重力理論"}[book] + "編";
     document.body.appendChild(h1);
     chapter = "";
   }
